@@ -67,5 +67,4 @@ https://hub.docker.com/u/mirko1075
 Contributing
 Feel free to contribute with a pull requests to us.
 
-License
-This project is licensed under the MIT License - see the LICENSE.md file for details
+
