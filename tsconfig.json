@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "outDir": "./build",
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "skipLibCheck": true,
+    "module": "commonjs",
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "target": "es6",
+    "noImplicitAny": true,
+    "moduleResolution": "node",
+    "sourceMap": true
+  },
+  "files": ["src/server.ts"]
+}
