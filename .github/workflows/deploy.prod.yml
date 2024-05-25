@@ -23,6 +23,12 @@ jobs:
     - run: npm run build
     - run: npm test
 
+    - name: Upload artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: "my-filereader-${{github.sha}}"
+        path: ./dist
+        
     - name: Login to Docker Hub
       run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
 
