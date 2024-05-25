@@ -1,6 +1,6 @@
 //test server.ts
 import request from 'supertest';
-import { app } from '../server';
+import { app } from '../app';
 
 describe('GET /', () => {
   it('should return 200 OK', done => {
@@ -11,15 +11,35 @@ describe('GET /', () => {
     request(app).get('/foo').expect(404, done);
   });
 
-  it('should return 405 Method Not Allowed', done => {
-    request(app).post('/').expect(405, done);
-  });
-
-  it('should return 500 Internal Server Error', done => {
-    request(app).get('/error').expect(500, done);
+  it('should return 404 Not found', done => {
+    request(app).post('/').expect(404, done);
   });
 
   it('should return 200 OK', done => {
-    request(app).get('/upload').expect(200, done);
+    request(app)
+      .post('/upload')
+      .attach('file', __dirname + '/' + `text.txt`)
+      .expect(200, done);
+  });
+
+  //it should render the result page with the parameters
+  it('should render the result page with the parameters', done => {
+    request(app)
+      .post('/upload')
+      .attach('file', __dirname + '/' + `text.txt`)
+      .expect(200)
+      .end((err, res) => {
+        if (err) return done(err);
+        expect(res.text).toContain('file content');
+        expect(res.text).toContain('Total words');
+        expect(res.text).toContain('Total characters');
+        expect(res.text).toContain('Total spaces');
+        expect(res.text).toContain('Repeated words');
+        done();
+      });
+  });
+
+  it('should return 400 Bad Request if no file provided', done => {
+    request(app).post('/upload').expect(400, done);
   });
 });
