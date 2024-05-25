@@ -13,29 +13,52 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Installing
 
-Install the dependencies, run the following command:
-```bash
-npm i
-```
-Build application:
-```bash
-npm run build 
-```
-
 Install dependencies:
 ```bash
 npm i
 ```
-
+### Run the application
 Run application:
 ```bash
 npm run start-prod
 ```
+### Run tests
 
 Run tests:
 ```bash
 npm run test:watch
 ```
+### Build the application
+Build application:
+```bash
+npm run build 
+```
+### Run the local build
+Run the local build:
+```bash
+cd  build
+npm i
+npm run start 
+```
+### Docker
+
+Deploy Docker container:
+```bash
+npm run docker-build-local
+```
+
+Run Docker container locally
+```bash
+npm run docker-run-local
+```
+
+
+Deploy and run Docker container locally
+```bash
+npm run docker-build-run-local
+```
+
+
 
 ### Docker repository
 
