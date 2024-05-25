@@ -9,9 +9,9 @@
     "test": "jest --coverage",
     "test:watch": "jest --watch",
     "build": "webpack",
-    "build-docker": "docker build -t my-filereader .",
-    "docke-run": "docker run -p 3000:3000 my-filereader -it",
-    "docker-build-run": "docker build -t my-filereader . && docker run -p 3000:3000 my-filereader -it"
+    "build-docker-local": "docker build -t my-filereader .",
+    "docke-run-local": "docker run -p 3000:3000 my-filereader -it",
+    "docker-build-run-local": "docker build -t my-filereader . && docker run -p 3000:3000 my-filereader -it"
   },
   "author": "Mirko Siddi",
   "dependencies": {
